@@ -13,7 +13,7 @@ menuToggle.onclick = function() {
     }
     // typed script
 var typed = new Typed(".auto-input", {
-    strings: ["Happy", "Birthday", "Lavu ❤️"],
+    strings: ["Happy", "Birthday", "Lavu ❤️ "],
     typeSpeed: 100,
     backSpeed: 100,
     loop: true
