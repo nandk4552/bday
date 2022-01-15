@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@keyframes slideFromBottom {
+    0% {
+        transform: translateX(-100%);
+    }
+    /* 50% {
+        transform: translateX(-50%);
+    } */
+    100% {
+        transform: translateX(0);
+    }
+}
+
+:root {
+    --black: #333;
+    --white: #fff;
+}
+
+.dark {
+    --black: #fff;
+    --white: #333;
+}
+
+.dark .mask {
+    filter: invert(1);
+    mix-blend-mode: multiply;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    transition: all .2s linear;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 4rem 10rem;
+    font-size: 1.5rem;
+    z-index: 1000;
+}
+
+header .logo {
+    position: relative;
+    display: inline-flex;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: .2rem 2rem;
+}
+
+.rightSide {
+    display: flex;
+}
+
+.btns {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    background: #c0c0c0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 1rem;
+    border-radius: .5rem;
+}
+
+.btns.menuToggle ion-icon {
+    font-size: 3rem;
+}
+
+.btns ion-icon {
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.btns ion-icon:nth-child(2) {
+    display: none;
+}
+
+.btns.active ion-icon:nth-child(2) {
+    display: block;
+}
+
+.btns.active ion-icon:nth-child(1) {
+    display: none;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    user-select: none;
+    mix-blend-mode: screen;
+}
+
+.main h2 {
+    position: relative;
+    font-size: 12vw;
+    z-index: 3;
+    color: #fff;
+    text-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.4);
+    animation: slideFromBottom 2s ease-in-out;
+}
+
+
+/* navigation css */
+
+.navigation {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    background: var(--white);
+    color: var(--black);
+    flex-direction: column;
+    transition: left .2s linear;
+}
+
+.navigation.active {
+    left: 0;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation li a {
+    display: inline-flex;
+    margin: .5rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+}
+
+.navigation li a:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.copyright {
+    position: absolute;
+    left: 10rem;
+    bottom: 4rem;
+    z-index: 4;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--black);
+}
+
+.sci {
+    position: absolute;
+    right: 10rem;
+    bottom: 5rem;
+    flex-direction: column;
+    z-index: 4;
+    font-size: 2.4rem;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    display: inline-block;
+    /* font-size: 2.5rem; */
+    color: var(--black);
+}
+
+.sci li a ion-icon {
+    font-size: 3.5rem;
+}
+
+.sci li a:hover {
+    transform: translateY(-.5rem);
+}
+
+
+/* media query */
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width:768px) {
+    html {
+        font-size: 52%;
+    }
+    header .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2rem;
+    }
+    header .rightSide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 2rem;
+    }
+    .mask {
+        width: 100%;
+    }
+    .sci {
+        right: 2rem;
+    }
+    .copyright {
+        bottom: 2rem;
+        left: 1rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width:468px) {
+    html {
+        font-size: 50%;
+    }
+    header .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2rem;
+    }
+    header .rightSide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 2rem;
+    }
+    .mask {
+        width: 100%;
+    }
+    .sci {
+        right: 2rem;
+    }
+    .copyright {
+        bottom: 2rem;
+        left: 8rem;
+        font-size: 1.4rem;
+    }
+}
